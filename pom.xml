@@ -15,7 +15,7 @@
         <maven.build.timestamp.format>wwuHHmm</maven.build.timestamp.format>
 
         <promccore.version>1.0.3.9-3860103</promccore.version>
-        <proskillapi.version>1.1.7.17-3830526</proskillapi.version>
+        <proskillapi.version>1.1.7.17-3860103</proskillapi.version>
         <spigot.version>1.19.2-R0.1-SNAPSHOT</spigot.version>
         <bungee.version>1.19-R0.1-SNAPSHOT</bungee.version>
         <mysql.version>8.0.30</mysql.version>

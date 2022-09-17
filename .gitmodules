@@ -1,0 +1,9 @@
+[submodule "promccore"]
+	path = promccore
+	url = https://github.com/promcteam/promccore
+[submodule "prorpgitems"]
+	path = prorpgitems
+	url = https://github.com/promcteam/prorpgitems
+[submodule "proskillapi"]
+	path = proskillapi
+	url = https://github.com/promcteam/proskillapi

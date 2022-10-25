@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>mc.promcteam</groupId>
+    <groupId>com.promcteam</groupId>
     <artifactId>promc-parent</artifactId>
-    <version>1.19.2</version>
+    <version>1.19.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -14,12 +14,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>wwuHHmm</maven.build.timestamp.format>
 
-        <promccore.version>1.0.3.9-3860103</promccore.version>
-        <proskillapi.version>1.1.7.17-3860103</proskillapi.version>
+        <promccore.version>1.0.3.10-SNAPSHOT</promccore.version>
+        <proskillapi.version>1.1.7.18-SNAPSHOT</proskillapi.version>
+        <prorpgitems.version>1.0.3.17-SNAPSHOT</prorpgitems.version>
         <spigot.version>1.19.2-R0.1-SNAPSHOT</spigot.version>
         <bungee.version>1.19-R0.1-SNAPSHOT</bungee.version>
         <mysql.version>8.0.30</mysql.version>
         <apache.version>3.12.0</apache.version>
+        <nexus.url>https://s01.oss.sonatype.org</nexus.url>
     </properties>
 
     <modules>
@@ -38,11 +40,6 @@
         <repository>
             <id>bungeecord-repo</id>
             <url>https://oss.sonatype.org/content/groups/public</url>
-        </repository>
-        <!-- ProMCTeam Repo -->
-        <repository>
-            <id>promcteam</id>
-            <url>https://maven.pkg.github.com/promcteam/promccore</url>
         </repository>
         <!-- Mythic Mobs Repo -->
         <repository>
@@ -76,15 +73,21 @@
         <dependencies>
             <!-- Internal Dependencies -->
             <dependency>
-                <groupId>mc.promcteam</groupId>
+                <groupId>com.promcteam</groupId>
                 <artifactId>promccore</artifactId>
                 <version>${promccore.version}</version>
                 <scope>compile</scope>
             </dependency>
             <dependency>
-                <groupId>mc.promcteam</groupId>
+                <groupId>com.promcteam</groupId>
                 <artifactId>proskillapi</artifactId>
                 <version>${proskillapi.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.promcteam</groupId>
+                <artifactId>prorpgitems</artifactId>
+                <version>${prorpgitems.version}</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -172,11 +175,125 @@
         </dependencies>
     </dependencyManagement>
 
-    <distributionManagement>
-        <repository>
-            <id>promcteam</id>
+    <profiles>
+        <profile>
+            <id>publish</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.13</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>central</serverId>
+                            <nexusUrl>${nexus.url}</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.2.0</version>
+                        <configuration>
+                            <reportOutputDirectory>${project.basedir}</reportOutputDirectory>
+                            <destDir>gh-pages/javadocs</destDir>
+                            <doclint>all,-missing</doclint>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <attach>true</attach>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <attach>true</attach>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>gpg</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
             <name>ProMCTeam</name>
-            <url>https://maven.pkg.github.com/promcteam/promccore</url>
+            <organization>ProMCTeam</organization>
+            <organizationUrl>https://promcteam.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/promcteam/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:ssh://github.com:promcteam/${project.artifactId}.git</developerConnection>
+        <url>https://github.com/promcteam/${project.artifactId}</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>${nexus.url}/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>${nexus.url}/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
 </project>

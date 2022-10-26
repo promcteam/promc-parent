@@ -21,6 +21,8 @@
         <promccore.version>1.0.3.10-SNAPSHOT</promccore.version>
         <proskillapi.version>1.1.7.18-SNAPSHOT</proskillapi.version>
         <prorpgitems.version>1.0.3.17-SNAPSHOT</prorpgitems.version>
+        <parties.version>1.0.1-SNAPSHOT</parties.version>
+
         <spigot.version>1.19.2-R0.1-SNAPSHOT</spigot.version>
         <bungee.version>1.19-R0.1-SNAPSHOT</bungee.version>
         <mysql.version>8.0.30</mysql.version>
@@ -86,6 +88,12 @@
                 <groupId>com.promcteam</groupId>
                 <artifactId>proskillapi</artifactId>
                 <version>${proskillapi.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.promcteam</groupId>
+                <artifactId>proskillapiparties</artifactId>
+                <version>${parties.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>

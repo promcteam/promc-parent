@@ -1,15 +1,20 @@
 [submodule "promccore"]
 	path = promccore
-	url = https://github.com/promcteam/promccore
+	url = git@github.com:promcteam/promccore.git
 	branch = master
 	update = rebase
 [submodule "prorpgitems"]
 	path = prorpgitems
-	url = https://github.com/promcteam/prorpgitems
+	url = git@github.com:promcteam/prorpgitems.git
 	branch = main
 	update = rebase
 [submodule "proskillapi"]
 	path = proskillapi
-	url = https://github.com/promcteam/proskillapi
+	url = git@github.com:promcteam/proskillapi.git
+	branch = master
+	update = rebase
+[submodule "proskillapiparties"]
+	path = proskillapiparties
+	url = git@github.com:promcteam/proskillapiparties.git
 	branch = master
 	update = rebase

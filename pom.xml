@@ -35,6 +35,7 @@
         <module>promccore</module>
         <module>prorpgitems</module>
         <module>proskillapi</module>
+        <module>proskillapiparties</module>
     </modules>
 
     <repositories>

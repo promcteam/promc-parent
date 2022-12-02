@@ -25,7 +25,7 @@
 
         <spigot.version>1.19.2-R0.1-SNAPSHOT</spigot.version>
         <bungee.version>1.19-R0.1-SNAPSHOT</bungee.version>
-        <mysql.version>8.0.30</mysql.version>
+        <mysql.version>8.0.31</mysql.version>
         <apache.version>3.12.0</apache.version>
         <nexus.url>https://s01.oss.sonatype.org</nexus.url>
         <outputDir>../ProBuilds</outputDir>

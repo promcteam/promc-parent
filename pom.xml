@@ -6,7 +6,7 @@
 
     <groupId>com.promcteam</groupId>
     <artifactId>promc-parent</artifactId>
-    <version>1.19.2-SNAPSHOT</version>
+    <version>1.19.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>ProMC Parent</name>
@@ -18,12 +18,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>wwuHHmm</maven.build.timestamp.format>
 
-        <promccore.version>1.0.3.10-SNAPSHOT</promccore.version>
-        <proskillapi.version>1.1.7.18-SNAPSHOT</proskillapi.version>
-        <prorpgitems.version>1.0.3.17-SNAPSHOT</prorpgitems.version>
-        <parties.version>1.0.1-SNAPSHOT</parties.version>
+        <promccore.version>1.0.4.0-SNAPSHOT</promccore.version>
+        <proskillapi.version>1.1.8.1-SNAPSHOT</proskillapi.version>
+        <prorpgitems.version>1.0.4.1-SNAPSHOT</prorpgitems.version>
+        <parties.version>1.1.0.1-SNAPSHOT</parties.version>
 
-        <spigot.version>1.19.2-R0.1-SNAPSHOT</spigot.version>
+        <spigot.version>1.19.3-R0.1-SNAPSHOT</spigot.version>
         <bungee.version>1.19-R0.1-SNAPSHOT</bungee.version>
         <mysql.version>8.0.31</mysql.version>
         <apache.version>3.12.0</apache.version>
@@ -109,6 +109,13 @@
             <dependency>
                 <groupId>org.spigotmc</groupId>
                 <artifactId>spigot-api</artifactId>
+                <version>${spigot.version}</version>
+                <!--            <classifier>remapped-mojang</classifier>-->
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.spigotmc</groupId>
+                <artifactId>spigot</artifactId>
                 <version>${spigot.version}</version>
                 <!--            <classifier>remapped-mojang</classifier>-->
                 <scope>provided</scope>
@@ -241,6 +248,33 @@
                                 </goals>
                                 <configuration>
                                     <attach>true</attach>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>readme</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.basedir}</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>doc</directory>
+                                            <includes>
+                                                <include>README.md</include>
+                                            </includes>
+                                            <filtering>true</filtering>
+                                        </resource>
+                                    </resources>
+                                    <!--                            <encoding>UTF-8</encoding>-->
                                 </configuration>
                             </execution>
                         </executions>

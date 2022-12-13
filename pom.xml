@@ -128,6 +128,12 @@
                 <version>${spigot.version}</version>
                 <!--            <classifier>remapped-mojang</classifier>-->
                 <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>net.md-5</groupId>

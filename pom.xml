@@ -6,7 +6,7 @@
 
     <groupId>com.promcteam</groupId>
     <artifactId>promc-parent</artifactId>
-    <version>1.19.4-SNAPSHOT</version>
+    <version>1.20.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>ProMC Parent</name>
@@ -18,14 +18,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>wwuHHmm</maven.build.timestamp.format>
 
-        <promccore.version>1.0.4-R0.5-SNAPSHOT</promccore.version>
-        <proskillapi.version>1.1.8-R0.22-SNAPSHOT</proskillapi.version>
-        <prorpgitems.version>1.0.4-R0.18-SNAPSHOT</prorpgitems.version>
+        <promccore.version>1.0.4-R0.8-SNAPSHOT</promccore.version>
+        <proskillapi.version>1.1.8-R0.31-SNAPSHOT</proskillapi.version>
+        <prorpgitems.version>1.0.4-R0.24-SNAPSHOT</prorpgitems.version>
         <parties.version>1.1.0-R0.3-SNAPSHOT</parties.version>
 
-        <spigot.version>1.19.4-R0.1-SNAPSHOT</spigot.version>
-        <bungee.version>1.19-R0.1-SNAPSHOT</bungee.version>
-        <mysql.version>8.0.31</mysql.version>
+        <spigot.version>1.20.1-R0.1-SNAPSHOT</spigot.version>
+        <bungee.version>1.20-R0.1-SNAPSHOT</bungee.version>
+        <mysql.version>8.0.32</mysql.version>
         <apache.version>3.12.0</apache.version>
         <nexus.url>https://s01.oss.sonatype.org</nexus.url>
         <outputDir>../ProBuilds</outputDir>

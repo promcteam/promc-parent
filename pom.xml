@@ -18,9 +18,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>wwuHHmm</maven.build.timestamp.format>
 
-        <promccore.version>1.0.4-R0.8-SNAPSHOT</promccore.version>
-        <proskillapi.version>1.1.8-R0.31-SNAPSHOT</proskillapi.version>
-        <prorpgitems.version>1.0.4-R0.24-SNAPSHOT</prorpgitems.version>
+        <promccore.version>1.0.4-R0.13-SNAPSHOT</promccore.version>
+        <proskillapi.version>1.1.9-R0.1-SNAPSHOT</proskillapi.version>
+        <prorpgitems.version>1.0.4-R0.29-SNAPSHOT</prorpgitems.version>
         <parties.version>1.1.0-R0.3-SNAPSHOT</parties.version>
 
         <spigot.version>1.20.1-R0.1-SNAPSHOT</spigot.version>
@@ -249,7 +249,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.24</version>
+                <version>1.18.28</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Test Dependencies -->

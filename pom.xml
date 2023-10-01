@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>wwuHHmm</maven.build.timestamp.format>
 
-        <promccore.version>1.0.6-R0.5-SNAPSHOT</promccore.version>
+        <promccore.version>1.0.6-R0.8-SNAPSHOT</promccore.version>
         <proskillapi.version>1.1.9-R0.1-SNAPSHOT</proskillapi.version>
         <prorpgitems.version>1.0.4-R0.29-SNAPSHOT</prorpgitems.version>
         <parties.version>1.1.0-R0.3-SNAPSHOT</parties.version>

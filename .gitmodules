@@ -18,3 +18,27 @@
 	url = git@github.com:promcteam/proskillapiparties.git
 	branch = master
 	update = rebase
+[submodule "problockregen"]
+	path = problockregen
+	url = git@github.com:promcteam/problockregen
+	branch = master
+[submodule "promcutilities"]
+	path = promcutilities
+	url = git@github.com:promcteam/promcutilities
+	branch = master
+[submodule "proenchantmentapi"]
+	path = proenchantmentapi
+	url = git@github.com:promcteam/proenchantmentapi
+	branch = master
+[submodule "ProSchematicBuilder"]
+	path = ProSchematicBuilder
+	url = git@github.com:promcteam/proschematicbuilder
+	branch = master
+[submodule "ProSkillAPI-QuestsModule"]
+	path = ProSkillAPI-QuestsModule
+	url = git@github.com:promcteam/proskillapi-questsmodule
+	branch = master
+[submodule "prorpgcrafting"]
+	path = prorpgcrafting
+	url = git@github.com:promcteam/prorpgcrafting
+	branch = master

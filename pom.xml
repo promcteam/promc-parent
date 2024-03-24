@@ -18,10 +18,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>wwuHHmm</maven.build.timestamp.format>
 
-        <promccore.version>1.2.0-R0.12-SNAPSHOT</promccore.version>
-        <proskillapi.version>1.3.0-R0.12-SNAPSHOT</proskillapi.version>
-        <prorpgitems.version>1.1.0-R0.15-SNAPSHOT</prorpgitems.version>
-        <parties.version>1.1.0-R0.4-SNAPSHOT</parties.version>
+        <codex.version>1.0.0-R0.1-SNAPSHOT</codex.version>
+        <fabled.version>1.0.0-R0.1-SNAPSHOT</fabled.version>
+        <divinity.version>1.0.0-R0.1-SNAPSHOT</divinity.version>
+        <fabled-parties.version>1.0.0-R0.1-SNAPSHOT</fabled-parties.version>
 
         <spigot.version>1.20.4-R0.1-SNAPSHOT</spigot.version>
         <bungee.version>1.20-R0.1-SNAPSHOT</bungee.version>
@@ -29,19 +29,23 @@
         <apache.version>3.12.0</apache.version>
         <lombok.version>1.18.30</lombok.version>
         <nexus.url>https://s01.oss.sonatype.org</nexus.url>
-        <outputDir>../ProBuilds</outputDir>
+        <outputDir>../build</outputDir>
     </properties>
 
     <modules>
-        <module>promccore</module>
-        <module>prorpgitems</module>
-        <module>proskillapi</module>
-        <module>proskillapiparties</module>
-        <module>problockregen</module>
-        <module>promcutilities</module>
-        <module>proenchantmentapi</module>
-        <module>ProSchematicBuilder</module>
-        <module>ProSkillAPI-QuestsModule</module>
+        <module>codex</module>
+        <module>divinity</module>
+        <module>fabled</module>
+        <module>fabled-parties</module>
+        <module>fabled-enchants</module>
+        <module>fabled-quests</module>
+        <module>mimic</module>
+        <module>sapphire</module>
+        <module>homestead</module>
+        <module>enigma</module>
+        <module>blueprint</module>
+        <module>genesis</module>
+        <module>fusion</module>
     </modules>
 
     <repositories>
@@ -102,26 +106,26 @@
             <!-- Internal Dependencies -->
             <dependency>
                 <groupId>com.promcteam</groupId>
-                <artifactId>promccore</artifactId>
-                <version>${promccore.version}</version>
+                <artifactId>codex</artifactId>
+                <version>${codex.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.promcteam</groupId>
-                <artifactId>proskillapi</artifactId>
-                <version>${proskillapi.version}</version>
+                <artifactId>fabled</artifactId>
+                <version>${fabled.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.promcteam</groupId>
-                <artifactId>proskillapiparties</artifactId>
-                <version>${parties.version}</version>
+                <artifactId>fabled-parties</artifactId>
+                <version>${fabled-parties.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.promcteam</groupId>
-                <artifactId>prorpgitems</artifactId>
-                <version>${prorpgitems.version}</version>
+                <artifactId>divinity</artifactId>
+                <version>${divinity.version}</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -490,7 +494,7 @@
                     <version>3.2.5</version>
                     <configuration>
                         <systemPropertyVariables>
-                            <PROMCCORE_VERSION>${promccore.version}</PROMCCORE_VERSION>
+                            <CODEX_VERSION>${codex.version}</CODEX_VERSION>
                         </systemPropertyVariables>
                     </configuration>
                 </plugin>

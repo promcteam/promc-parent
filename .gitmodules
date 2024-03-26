@@ -18,8 +18,8 @@
 	url = git@github.com:promcteam/proskillapiparties.git
 	branch = dev
 	update = rebase
-[submodule "mimic"]
-	path = mimic
+[submodule "mirage"]
+	path = mirage
 	url = git@github.com:promcteam/problockregen.git
 	branch = dev
 	update = rebase

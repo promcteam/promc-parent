@@ -19,17 +19,17 @@
         <maven.build.timestamp.format>wwuHHmm</maven.build.timestamp.format>
 
         <codex.version>1.0.0-R0.1-SNAPSHOT</codex.version>
-        <fabled.version>1.0.0-R0.1-SNAPSHOT</fabled.version>
         <divinity.version>1.0.0-R0.1-SNAPSHOT</divinity.version>
+        <fabled.version>1.0.0-R0.1-SNAPSHOT</fabled.version>
         <fabled-parties.version>1.0.0-R0.1-SNAPSHOT</fabled-parties.version>
 
         <spigot.version>1.20.4-R0.1-SNAPSHOT</spigot.version>
         <bungee.version>1.20-R0.1-SNAPSHOT</bungee.version>
-        <mysql.version>8.2.0</mysql.version>
-        <apache.version>3.12.0</apache.version>
-        <lombok.version>1.18.30</lombok.version>
+        <mysql.version>8.3.0</mysql.version>
+        <apache.version>3.14.0</apache.version>
+        <lombok.version>1.18.32</lombok.version>
         <nexus.url>https://s01.oss.sonatype.org</nexus.url>
-        <outputDir>../build</outputDir>
+        <outputDir>../builds</outputDir>
     </properties>
 
     <modules>
@@ -39,7 +39,7 @@
         <module>fabled-parties</module>
         <module>fabled-enchants</module>
         <module>fabled-quests</module>
-        <module>mimic</module>
+        <module>mirage</module>
         <module>sapphire</module>
         <module>homestead</module>
         <module>enigma</module>
@@ -101,6 +101,27 @@
         </repository>
     </repositories>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github.seeseemelk</groupId>
+            <artifactId>MockBukkit-v1.20</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>24.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <!-- Internal Dependencies -->
@@ -160,7 +181,7 @@
             <dependency>
                 <groupId>com.mojang</groupId>
                 <artifactId>authlib</artifactId>
-                <version>3.11.50</version>
+                <version>4.0.43</version>
                 <scope>provided</scope>
                 <exclusions>
                     <exclusion>
@@ -184,6 +205,10 @@
                         <groupId>org.apache.logging.log4j</groupId>
                         <artifactId>log4j-slf4j-impl</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>jcl-over-slf4j</artifactId>
+                    </exclusion>
                 </exclusions>
                 <scope>provided</scope>
             </dependency>
@@ -204,6 +229,10 @@
                     <exclusion>
                         <groupId>org.slf4j</groupId>
                         <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.google.code.gson</groupId>
+                        <artifactId>gson</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
@@ -267,12 +296,24 @@
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache.version}</version>
+                <scope>provided</scope>
+            </dependency>
             <!-- Test Dependencies -->
             <dependency>
                 <groupId>com.github.seeseemelk</groupId>
                 <artifactId>MockBukkit-v1.20</artifactId>
                 <version>3.77.0</version>
                 <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>jcl-over-slf4j</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
@@ -294,18 +335,6 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-reload4j</artifactId>
-                <version>2.0.7</version>
-                <scope>test</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
                 <version>5.9.0</version>
@@ -320,7 +349,7 @@
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
-                <version>4.1.86.Final</version>
+                <version>4.1.108.Final</version>
                 <scope>provided</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
@@ -463,6 +492,12 @@
     </profiles>
 
     <build>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
